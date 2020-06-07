@@ -1,8 +1,13 @@
 [package]
 name = "phonics"
-version = "0.1.0"
+version = "0.0.1"
 authors = ["James P. Howard, II <james.howard@jhu.edu>"]
 edition = "2018"
+description = "Phonetic spelling algorithms in Rust"
+license = "MIT"
+documentation = "https://github.com/k3jph/phonics-in-rust"
+homepage = "https://github.com/k3jph/phonics-in-rust"
+repository = "https://github.com/k3jph/phonics-in-rust"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
