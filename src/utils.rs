@@ -41,7 +41,7 @@ pub fn remove_duplicate_characters(string: &str) -> String {
         }
     }
 
-    return return_string;
+    return_string
 }
 
 pub fn transform_characters(string: &str, src: &str, dst: &str) -> String {
@@ -55,7 +55,7 @@ pub fn transform_characters(string: &str, src: &str, dst: &str) -> String {
         }
     }
 
-    return return_string;
+    return_string
 }
 
 #[cfg(test)]

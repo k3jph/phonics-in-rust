@@ -54,7 +54,7 @@ impl PhonicsEncoder for Lein {
 
         // First, uppercase it and test for unprocessable characters
         return_string = return_string.to_uppercase();
-        if self.special_characters_re.is_match(&return_string) && self.clean == true {
+        if self.special_characters_re.is_match(&return_string) && self.clean {
             return Err(PhonicsError::UnknownCharactersFound);
         }
         let return_string = self.white_space_re.replace_all(&return_string, "");
@@ -96,7 +96,7 @@ impl PhonicsEncoder for Lein {
             return_string = String::new();
         }
 
-        return Ok(return_string.to_string());
+        Ok(return_string)
     }
 }
 

@@ -86,6 +86,17 @@ pub trait PhonicsEncoder {
     fn encode(&self, word: &str) -> Result<String, PhonicsError>;
 }
 
+/// A generic factory for phonetic encoders.
+///
+/// Instances of [`PhonicsEncoder`] should provide an encoder for strings.  It is
+/// not expected to maintain state as phonetic encoders do not typically include
+/// an updating mechanism.
+///
+/// ### Example
+///
+/// ```
+/// use phonics::Phonics;
+/// ```
 pub struct Phonics<P: PhonicsEncoder> {
     encoder: P,
 }
@@ -96,6 +107,6 @@ impl<P: PhonicsEncoder> PhonicsEncoder for Phonics<P> {
     }
 
     fn encode(&self, word: &str) -> Result<String, PhonicsError> {
-        return self.encoder.encode(word);
+        self.encoder.encode(word)
     }
 }
