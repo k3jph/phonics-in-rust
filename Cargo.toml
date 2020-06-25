@@ -1,14 +1,14 @@
 [package]
 name = "phonics"
 version = "0.0.1"
-authors = ["James P. Howard, II <james.howard@jhu.edu>"]
+authors = ["James P. Howard, II <jh@jameshoward.us>"]
 edition = "2018"
 description = "Phonetic spelling algorithms in Rust"
 license = "MIT"
-documentation = "https://github.com/k3jph/phonics-in-rust"
+documentation = "https://docs.rs/phonics"
 homepage = "https://github.com/k3jph/phonics-in-rust"
 repository = "https://github.com/k3jph/phonics-in-rust"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+regex = "1"
+getset = "0.1.1"
