@@ -42,7 +42,7 @@ matrix:
       script:
         - |
           cargo build --verbose &&
-          kcov --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo,/usr/lib target/cov target/debug/<executable name>-* &&
+          kcov --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo,/usr/lib target/debug/<executable name>-* &&
           bash <(curl -s https://codecov.io/bash) &&
           echo "Uploaded code coverage"
       addons: # required for kcov
