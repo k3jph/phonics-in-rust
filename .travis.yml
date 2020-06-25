@@ -33,23 +33,6 @@ matrix:
         - cargo fmt --all -- --check
         - cargo clippy
 
-    - env: NAME='cargo-travis'
-      sudo: required # travis-ci/travis-ci#9061
-      before_script:
-        - cargo install cargo-update || echo "cargo-update already installed"
-        - cargo install cargo-travis || echo "cargo-travis already installed"
-        - cargo install-update -a
-      script:
-        - |
-          cargo build --verbose &&
-          kcov --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo,/usr/lib target/debug/<executable name>-* &&
-          bash <(curl -s https://codecov.io/bash) &&
-          echo "Uploaded code coverage"
-      addons: # required for kcov
-        apt:
-          packages:
-            - kcov
-
 script: |
   export RUST_BACKTRACE=1 &&
   cargo build --verbose &&
