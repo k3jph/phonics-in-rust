@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/crates/l/phonics)](https://github.com/Hoverbear/getset/blob/master/LICENSE)
 [![Docs](https://docs.rs/phonics/badge.svg)](https://docs.rs/phonics/)
 [![Build Status](https://img.shields.io/travis/k3jph/phonics-in-rust.svg)](https://travis-ci.org/k3jph/phonics-in-rust)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3908742.svg)](https://doi.org/10.5281/zenodo.3908742)
 
 This is a package to port the [Phonics in
 R](https://howardjp.github.io/phonics/) package to Rust.  In large
