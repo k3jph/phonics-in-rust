@@ -1,0 +1,17 @@
+[package]
+name = "phonics"
+version = "0.1.0"
+authors = ["James P. Howard, II <jh@jameshoward.us>"]
+edition = "2018"
+description = "Phonetic spelling algorithms in Rust"
+license = "MIT"
+documentation = "https://docs.rs/phonics"
+homepage = "https://github.com/k3jph/phonics-in-rust"
+repository = "https://github.com/k3jph/phonics-in-rust"
+
+[dependencies]
+regex = "1"
+getset = "0.1.1"
+
+[badges]
+travis-ci = { repository = "k3jph/phonics-in-rust", branch = "master" }
