@@ -12,3 +12,6 @@ repository = "https://github.com/k3jph/phonics-in-rust"
 [dependencies]
 regex = "1"
 getset = "0.1.1"
+
+[badges]
+travis-ci = { repository = "k3jph/phonics-in-rust", branch = "master" }
