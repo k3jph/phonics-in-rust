@@ -1,6 +1,6 @@
 [package]
 name = "phonics"
-version = "0.0.1"
+version = "0.1.0"
 authors = ["James P. Howard, II <jh@jameshoward.us>"]
 edition = "2018"
 description = "Phonetic spelling algorithms in Rust"
