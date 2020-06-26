@@ -23,7 +23,7 @@ _More to come, as they are reimplemented from the R package._
 
 ## Dependencies
 
-* getset
+* [getset](https://crates.io/crates/getset)
 * [regex](https://crates.io/crates/regex)
 
 ## Contribution guidelines
