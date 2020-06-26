@@ -8,6 +8,9 @@ license = "MIT"
 documentation = "https://docs.rs/phonics"
 homepage = "https://github.com/k3jph/phonics-in-rust"
 repository = "https://github.com/k3jph/phonics-in-rust"
+readme = "README.md"
+keywords = ["text-processing", "phonetics"]
+categories = ["text-processing"]
 
 [dependencies]
 regex = "1"
