@@ -20,23 +20,56 @@
  * SOFTWARE.
  */
 
-use getset::{CopyGetters, Setters};
 use regex::Regex;
 
 use crate::utils;
 use crate::PhonicsEncoder;
 use crate::PhonicsError;
 
-#[derive(CopyGetters, Setters)]
+/// The Lein name coding procedure.
+///
+/// The Lein algorithm is only defined for inputs over the
+/// standard English alphabet, _i.e._, "A-Z". Non-alphabetical
+/// characters are removed from the string in a locale-dependent fashion.
+/// This strips spaces, hyphens, and numbers.  Other letters, such as
+/// 'Ü', may be permissible in the current locale but are unknown to
+/// Lein.  For inputs outside of its known range, an error is returned
+/// If `clean` is `false`, the encoder attempts to process the
+/// strings.  The default value of `clean` is `true`.
+///
+/// # References
+///
+/// Billy T. Lynch and William L. Arends. "Selection of surname coding
+/// procedure for the SRS record linkage system." United States
+/// Department of Agriculture, Sample Survey Research Branch, Research
+/// Division, Washington, 1977.
+///
+/// # Example
+///
+/// ```
+/// use phonics::{Lein, PhonicsEncoder};
+///
+/// let mut enc = Lein::new();
+/// enc.encode("Mulder");
+/// ```
 pub struct Lein {
+    /// The special characters check regular expression is precompiled at instance instantiation
+    /// to speed execution at run time.
     special_characters_re: Regex,
+
+    /// The white space removal regular expression is precompiled at instance instantiation to
+    /// speed execution at run time.
     white_space_re: Regex,
 
-    #[getset(get_copy = "pub with_prefix", set = "pub")]
-    max_code_len: usize,
+    /// The Lein specification has a standard maximum length.  However, it may be reasonable to
+    /// use either a shorter or longer length, depending on the application.  The default value
+    /// for `max_code_len` is is in [`Lein::MAX_CODE_LEN_DEFAULT`].
+    pub max_code_len: usize,
 
-    #[getset(get_copy = "pub with_prefix", set = "pub")]
-    clean: bool,
+    /// If `clean` is `true`, then `encode` will return
+    /// [`PhonicsError::UnknownCharactersFound`]. If `clean` is `false`, then unknown characters
+    /// are ignored.  The default value is [`Lein::CLEAN_DEFAULT`].
+    pub clean: bool,
 }
 
 impl PhonicsEncoder for Lein {
@@ -101,8 +134,11 @@ impl PhonicsEncoder for Lein {
 }
 
 impl Lein {
-    const MAX_CODE_LEN_DEFAULT: usize = 4;
-    const CLEAN_DEFAULT: bool = false;
+    /// The default value of the maximum allowable return length.
+    pub const MAX_CODE_LEN_DEFAULT: usize = 4;
+
+    /// The default value on the handling of special characters.
+    pub const CLEAN_DEFAULT: bool = false;
 }
 
 #[cfg(test)]
@@ -113,7 +149,7 @@ mod tests {
     fn test_lein_default_max_code_len() {
         let e = Lein::new();
 
-        assert_eq!(e.get_max_code_len(), Lein::MAX_CODE_LEN_DEFAULT);
+        assert_eq!(e.max_code_len, Lein::MAX_CODE_LEN_DEFAULT);
     }
 
     #[test]
@@ -121,8 +157,8 @@ mod tests {
         let mut e = Lein::new();
 
         for i in 0..10 {
-            e.set_max_code_len(i);
-            assert_eq!(e.get_max_code_len(), i);
+            e.max_code_len = i;
+            assert_eq!(e.max_code_len, i);
         }
     }
 
@@ -130,7 +166,7 @@ mod tests {
     fn test_lein_default_clean() {
         let e = Lein::new();
 
-        assert_eq!(e.get_clean(), Lein::CLEAN_DEFAULT);
+        assert_eq!(e.clean, Lein::CLEAN_DEFAULT);
     }
 
     #[test]
@@ -138,8 +174,8 @@ mod tests {
         let mut e = Lein::new();
 
         for i in &[false, true] {
-            e.set_clean(*i);
-            assert_eq!(e.get_clean(), *i);
+            e.clean = *i;
+            assert_eq!(e.clean, *i);
         }
     }
 }

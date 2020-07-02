@@ -78,7 +78,7 @@ fn test_lein_directly() {
 fn test_lein_max_code_len() {
     let mut e = Lein::new();
 
-    e.set_max_code_len(3);
+    e.max_code_len = 3;
     assert_eq!(e.encode("Euler").unwrap(), "E33");
     assert_eq!(e.encode("Ellery").unwrap(), "E33");
     assert_eq!(e.encode("Gauss").unwrap(), "G50");
@@ -100,7 +100,7 @@ fn test_lein_max_code_len() {
     assert_eq!(e.encode("garçon").unwrap(), "G32");
     assert_eq!(e.encode("Breschnew").unwrap(), "B35");
 
-    e.set_max_code_len(6);
+    e.max_code_len = 6;
     assert_eq!(e.encode("Euler").unwrap(), "E33000");
     assert_eq!(e.encode("Ellery").unwrap(), "E33000");
     assert_eq!(e.encode("Gauss").unwrap(), "G50000");
@@ -127,7 +127,7 @@ fn test_lein_max_code_len() {
 fn test_lein_clean() {
     let mut e = Lein::new();
 
-    e.set_clean(true);
+    e.clean = true;
     assert_eq!(e.encode("Euler").unwrap(), "E330");
     assert_eq!(e.encode("Ellery").unwrap(), "E330");
     assert_eq!(e.encode("Gauss").unwrap(), "G500");
