@@ -20,6 +20,10 @@
  * SOFTWARE.
  */
 
+/// Remove the first character a string
+///
+/// This function removes the first character of a string and returns the
+/// remaining characters as a string.
 pub fn strip_first_char(string: &str) -> String {
     String::from(
         string
@@ -30,6 +34,12 @@ pub fn strip_first_char(string: &str) -> String {
     )
 }
 
+/// Strip repeat characters
+///
+/// This function removes duplicated consecutive characters.  For instance,
+/// many phonetic spelling algorithms replace a string of consecutive
+/// identical characters with a single instance.  Therefore, this support
+/// function provides that function, generically.
 pub fn remove_duplicate_characters(string: &str) -> String {
     let mut return_string = String::new();
     let mut last_char = '0';
