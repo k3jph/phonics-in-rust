@@ -36,3 +36,12 @@ _More to come, as they are reimplemented from the R package._
 
 * [Phonics in R website](https://howardjp.github.io/phonics/)
 * James P. Howard, II <<jh@jameshoward.us>>
+
+## Acknowledgements
+
+This work used the [Extreme Science and Engineering Discovery
+Environment](https://www.xsede.org/) (XSEDE), which is supported
+by National Science Foundation grant number ACI-1548562. In particular,
+it used the Comet system at the [San Diego Supercomputing
+Center](https://www.sdsc.edu/) (SDSC) through allocations TG-DBS170012
+and TG-ASC150024.
